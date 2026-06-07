@@ -1,0 +1,10 @@
+**/.env
+
+**/.venv/*
+**/.DS_Store
+**/.mypy_cache/*
+**/.vscode/*
+**/__pycache__/*
+
+**/artist_specific/*
+**/main.py
