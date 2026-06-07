@@ -4,6 +4,7 @@ from pathlib import Path
 import dotenv
 from dacite import Config
 
+
 dotenv.load_dotenv()
 X_API_KEY = os.getenv("SETLIST_FM_API_KEY")
 

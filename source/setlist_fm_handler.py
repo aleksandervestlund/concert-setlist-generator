@@ -50,7 +50,6 @@ def get_setlists(mbid: str, artist_name: str) -> Setlists:
     }
     response = send_request(params, url)
     snake_response = deep_snake_case_keys(response)
-    print(snake_response)
     setlists_data = from_dict(Setlists, snake_response, config=CONFIG)
     setlist = setlists_data.setlist
     total = setlists_data.total
@@ -60,7 +59,6 @@ def get_setlists(mbid: str, artist_name: str) -> Setlists:
     for page in range(2, total_pages + 1):
         params["p"] = page
         response = send_request(params, url)
-        print(snake_response)
         snake_response = deep_snake_case_keys(response)
         setlist_data = from_dict(Setlists, snake_response, config=CONFIG)
         setlist.extend(setlist_data.setlist)
