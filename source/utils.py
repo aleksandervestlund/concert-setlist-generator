@@ -28,12 +28,6 @@ def deep_snake_case_keys(data: Any) -> Any:
     return data
 
 
-def api_to_dataclass_keys(name: str) -> str:
-    if name == "with":
-        return "with_"
-    return snake_to_camel(name)
-
-
 def extract_setlists(setlists: Setlists) -> list[list[str]]:
     cleaned: list[list[str]] = []
     setlist = setlists.setlist

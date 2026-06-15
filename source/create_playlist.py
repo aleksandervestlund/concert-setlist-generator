@@ -75,9 +75,7 @@ def merge_setlist_with_master(
         if not insert_by_neighbor_context(
             master_playlist, song, album_tracks, alb_i, song_aliases
         ):
-            raise ValueError(
-                f"Could not insert song {song!r} into master playlist. Playlist: {master_playlist}"
-            )
+            raise ValueError(f"Could not insert {song!r} into master playlist")
 
 
 def find_album_index(
@@ -103,6 +101,7 @@ def insert_by_neighbor_context(
     for d in range(1, max_dist + 1):
         if (ahead_idx := target_idx + d) < len(reference_sequence):
             anchor = reference_sequence[ahead_idx]
+
             if (
                 master_idx := find_in_master(
                     anchor, master_playlist, song_aliases
@@ -113,6 +112,7 @@ def insert_by_neighbor_context(
 
         if (behind_idx := target_idx - d) >= 0:
             anchor = reference_sequence[behind_idx]
+
             if (
                 master_idx := find_in_master(
                     anchor, master_playlist, song_aliases
