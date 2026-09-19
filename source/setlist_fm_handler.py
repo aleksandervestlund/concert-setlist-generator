@@ -55,6 +55,7 @@ def get_setlists(mbid: str, artist_name: str) -> Setlists:
     total = setlists_data.total
     items_per_page = setlists_data.items_per_page
     total_pages = math.ceil(total / items_per_page)
+    page = 1
 
     for page in range(2, total_pages + 1):
         params["p"] = page
